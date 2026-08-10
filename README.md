@@ -2,6 +2,8 @@
 
 A full-stack polling application with an **Angular frontend** (`poll-app`) and a **Spring Boot backend API** (root project). Users can create polls, list polls, view a poll by id, and submit votes.
 
+![Poll App Screenshot](assets/poll-image.png)
+
 ## Tech stack
 
 | Layer | Technology |
