@@ -1,21 +1,24 @@
-# Voting App API
+# Voting App (Full Stack)
 
-A Spring Boot REST API for creating polls and submitting votes.
+A full-stack polling application with an **Angular frontend** (`poll-app`) and a **Spring Boot backend API** (root project). Users can create polls, list polls, view a poll by id, and submit votes.
 
 ## Tech stack
 
-- Spring Boot
-- Spring Data JPA
-- MySQL
-- Maven Wrapper (`mvnw.cmd`)
+| Layer | Technology |
+| --- | --- |
+| Frontend | Angular 22, Bootstrap 5, TypeScript |
+| Backend | Spring Boot, Spring Data JPA, Java |
+| Database | MySQL |
+| Tooling | npm, Angular CLI, Maven Wrapper (`mvnw.cmd`) |
 
 ## Project structure
 
-- `controller/PollController` - REST endpoints under `/api/polls`
-- `services/PollService` - business logic for creating polls and voting
-- `model/Poll` and `model/OptionVote` - JPA entities/value objects
-- `repositories/PollRepository` - persistence layer
-- `request/Vote` - request payload for voting
+- `poll-app/` - Angular client application
+- `src/main/java/.../controller/PollController` - REST endpoints under `/api/polls`
+- `src/main/java/.../services/PollService` - poll creation and voting logic
+- `src/main/java/.../model/Poll` and `model/OptionVote` - JPA entities/value objects
+- `src/main/java/.../repositories/PollRepository` - persistence layer
+- `src/main/java/.../request/Vote` - request payload for voting
 
 ## Prerequisites
 
@@ -47,17 +50,27 @@ spring.datasource.username=root
 spring.datasource.password=${DB_PASSWORD}
 ```
 
-## Run the application
+## Run the full stack locally
 
-From the project root:
+1. Start the backend API (from project root):
 
 ```powershell
 .\mvnw.cmd spring-boot:run
 ```
 
-Default base URL:
+Backend base URL: `http://localhost:8080`
 
-`http://localhost:8080`
+2. Start the frontend app (in a second terminal):
+
+```powershell
+cd .\poll-app
+npm install
+npm start
+```
+
+Frontend URL: `http://localhost:4200`
+
+> Ensure the frontend API configuration points to `http://localhost:8080`.
 
 ## API endpoints
 
